@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:27:00 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/20 14:53:53 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/20 15:08:58 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,16 +101,71 @@ void	init_stack(t_stack *stack, char **av)
 
 void	parse_args(t_stack *stack, int ac, char **av)
 {
-	char	**args;
+	char	**split_args;
 	int		i;
+	int		j;
+	int		pos;
+	long	num;
 
 	i = 1;
+	pos = 0;
 	while (i < ac)
 	{
 		if (!av[i][0])
 			error();
+		
+		// Check if the argument contains spaces
+		if (ft_strchr(av[i], ' '))
+		{
+			split_args = ft_split(av[i], ' ');
+			if (!split_args)
+				error();
+			j = 0;
+			while (split_args[j])
+			{
+				if (!check_digit(split_args[j]))
+				{
+					ft_free_split(split_args);
+					error();
+				}
+				num = ft_atol(split_args[j]);
+				if (num == 2147483649)
+				{
+					ft_free_split(split_args);
+					error();
+				}
+				stack->stack_a[pos++] = (int)num;
+				j++;
+			}
+			ft_free_split(split_args);
+		}
+		else
+		{
+			if (!check_digit(av[i]))
+				error();
+			num = ft_atol(av[i]);
+			if (num == 2147483649)
+				error();
+			stack->stack_a[pos++] = (int)num;
+		}
 		i++;
 	}
-	args = av + 1;
-	init_stack(stack, args);
+	stack->a_size = pos;
+	stack->b_size = 0;
+	if (check_duplicates(stack))
+		error();
+}
+
+// Helper function to free split result
+void	ft_free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
