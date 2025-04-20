@@ -6,21 +6,18 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 13:48:40 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/20 14:34:19 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/20 14:51:21 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_stack_sorted(t_stack *stack)
+int check_stack_sorted(t_stack *stack)
 {
-    int i = 0;
-    
-    while (i < stack->a_size - 1)
+    for (int i = 0; i < stack->a_size - 1; i++)
     {
         if (stack->stack_a[i] > stack->stack_a[i + 1])
             return (0);
-        i++;
     }
     return (1);
 }

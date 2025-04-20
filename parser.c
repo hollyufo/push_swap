@@ -6,11 +6,9 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:27:00 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/20 14:29:13 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/20 14:53:53 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
@@ -89,7 +87,7 @@ void	init_stack(t_stack *stack, char **av)
 	{
 		if (!check_digit(av[i]))
 			error();
-		num = ft_atol(av[i]);
+		num = ft_atoi(av[i]);
 		if (num == 2147483649)
 			error();
 		stack->stack_a[i] = (int)num;

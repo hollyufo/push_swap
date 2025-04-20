@@ -54,5 +54,5 @@ void	error(void);
 int		check_digit(char *str);
 int		check_duplicates(t_stack *stack);
 long	ft_atol(char *str);
-int		count_numbers_in_arg(char *arg);
+int		count_numbers_in_string(char *str);
 #endif
