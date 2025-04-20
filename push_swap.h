@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/20 15:22:04 by imchaibi          #+#    #+#             */
+/*   Updated: 2025/04/20 15:22:30 by imchaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -5,6 +17,7 @@
 # include <unistd.h>
 # include "Libft/libft.h"
 # include <limits.h>
+
 typedef struct s_stack
 {
 	int	*stack_a;
@@ -43,7 +56,6 @@ void	sort_helper(int *i, int *range, t_stack *stack, int size);
 void	sort_helper2(int *i, int *range, t_stack *stack, int size);
 void	push_biggest_to_top_b(t_stack *stack);
 void	push_to_a(t_stack *stack);
-
 
 void	parse_args(t_stack *stack, int ac, char **av);
 void	process_args(t_stack *stack, int ac, char **av);

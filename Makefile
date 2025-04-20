@@ -6,7 +6,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRC_DIR = .
 MOVES_DIR = moves
 SORT_DIR = sort
-SRC = main.c parser.c parser_helper.c \
+SRC = main.c parser.c parser_helper.c parser_helper2.c \
 	$(SORT_DIR)/main_sort.c \
 	$(SORT_DIR)/stack_operations.c \
 	$(SORT_DIR)/sort_utilities.c \
